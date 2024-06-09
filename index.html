@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .content {
+            white-space: pre-wrap; /* Preserves whitespace and line breaks */
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Content of index.md</h1>
+    <div id="content" class="content">Loading...</div>
+
+    <script>
+        fetch('index.md')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('content').innerText = data;
+            })
+            .catch(error => {
+                document.getElementById('content').innerText = 'Error loading content.';
+                console.error('Error fetching the index.md file:', error);
+            });
+    </script>
+</body>
+</html>
